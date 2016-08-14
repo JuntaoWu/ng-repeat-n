@@ -34,7 +34,7 @@ exports.paths = {
       "babelify"
     ]
   },
-  main: '/index.js', /** If you change this you need to update the package.json as well */
+  main: '/index.ts', /** If you change this you need to update the package.json as well */
   bundle: Project_Name + '.js',
   karmaConf: __dirname + '/../karma.conf.js',
   karmaCoverageConf: __dirname + '/../karma-coverage.conf.js',

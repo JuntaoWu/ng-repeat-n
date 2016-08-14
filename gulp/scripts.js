@@ -56,7 +56,7 @@ gulp.task('bower', ['clean-bower'], function () {
       sourceType: "module"
     })
     .add([].concat(conf.paths.src + conf.paths.main, conf.paths.typings.browser))
-    .transform(babelify);
+    .plugin(tsify);
 
   return bundler.bundle()
     .pipe(source(conf.files.BOWER_JS))
@@ -139,5 +139,7 @@ gulp.task('nsp', function (done) {
  * @param done - done callback function.
  */
 gulp.task('build-scripts',function(done) {
-  runSequence('nsp','clean-build',['tslint', 'tsconfig-update'], ['npm', 'build-bower'], 'inject-js', done);
+  //todo: The tslint has been removed.
+  runSequence('nsp','clean-build',['tsconfig-update'], ['npm', 'build-bower'], 'inject-js', done);
+  //runSequence('nsp','clean-build',['tslint', 'tsconfig-update'], ['npm', 'build-bower'], 'inject-js', done);
 });

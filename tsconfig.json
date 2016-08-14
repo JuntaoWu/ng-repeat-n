@@ -14,7 +14,13 @@
     "test/**/*.ts"
   ],
   "files": [
-    "typings\\browser.d.ts"
+    "typings\\browser.d.ts",
+    "src\\angular.d.ts",
+    "src\\createMap.ts",
+    "src\\hashKey.ts",
+    "src\\index.ts",
+    "src\\minErr.ts",
+    "src\\utils.ts"
   ],
   "exclude": [
     "node_modules"
