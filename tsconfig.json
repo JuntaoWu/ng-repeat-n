@@ -13,7 +13,9 @@
     "src/**/*.ts",
     "test/**/*.ts"
   ],
-  "files": [],
+  "files": [
+    "typings\\browser.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

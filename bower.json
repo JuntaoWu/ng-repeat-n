@@ -4,7 +4,7 @@
   "description": "extension of ng-repeat",
   "main": "bower/ng-repeat-n.js",
   "dependencies": {
-    "angular": "1.x"
+    "angular": "1.5.x"
   },
   "devDependencies": {},
   "moduleType": [
