@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "emitError": false,
-    "target": "ES2015",
+    "target": "es5",
     "sourceMap": false,
     "declaration": true,
     "module": "commonjs",
     "noExternalResolve": false,
-    "sortOutput": true
+    "sortOutput": true,
+    "moduleResolution": "node"
   },
   "filesGlob": [
     "typings/browser.d.ts",
@@ -15,7 +16,6 @@
   ],
   "files": [
     "typings\\browser.d.ts",
-    "src\\angular.d.ts",
     "src\\createMap.ts",
     "src\\hashKey.ts",
     "src\\index.ts",

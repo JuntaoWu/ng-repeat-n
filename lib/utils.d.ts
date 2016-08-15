@@ -1,3 +1,4 @@
+/// <reference path="../typings/index.d.ts" />
 declare var _default: {
     isArrayLike: (obj: any) => boolean;
     isUndefined: (value: any) => boolean;

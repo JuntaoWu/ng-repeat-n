@@ -1,5 +1,6 @@
+/// <reference path="../typings/index.d.ts" />
 
-import { jqLite } from "./angular.d";
+declare var jqLite: JQueryStatic;
 
 function isArrayLike(obj) {
 

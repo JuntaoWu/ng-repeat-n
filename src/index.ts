@@ -1,9 +1,9 @@
+/// <reference path="../typings/index.d.ts" />
 
 import minErr from "./minErr";
 import hashKey from "./hashKey";
 import createMap from "./createMap";
 import utils from "./utils";
-import { angular, jqLite } from "./angular.d";
 
 var isArrayLike = utils.isArrayLike;
 var hasOwnProperty = Object.prototype.hasOwnProperty;

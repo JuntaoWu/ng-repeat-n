@@ -6,6 +6,7 @@
 coverage/
 docs/
 node_modules/
+bower_components/
 typings/
 npm-debug.log
 src/**/*.js
