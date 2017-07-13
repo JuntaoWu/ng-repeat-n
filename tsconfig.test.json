@@ -1,0 +1,16 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "outDir": "./lib_test",
+    "declaration": false,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "inlineSourceMap": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "test/**/*"
+  ]
+}

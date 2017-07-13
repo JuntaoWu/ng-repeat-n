@@ -1,28 +1,28 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "emitError": false,
-    "target": "es5",
-    "sourceMap": false,
     "declaration": true,
     "module": "commonjs",
-    "noExternalResolve": false,
-    "sortOutput": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "target": "es2015",
+    "noImplicitAny": true,
+    "outDir": "./lib",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "baseUrl": "."
   },
-  "filesGlob": [
-    "typings/browser.d.ts",
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ],
-  "files": [
-    "typings\\browser.d.ts",
-    "src\\createMap.ts",
-    "src\\hashKey.ts",
-    "src\\index.ts",
-    "src\\minErr.ts",
-    "src\\utils.ts"
+  "include": [
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "jspm_packages",
+    "types",
+    "examples",
+    "**/*-spec.ts"
   ]
 }

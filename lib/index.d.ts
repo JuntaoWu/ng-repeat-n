@@ -1,1 +1,1 @@
-/// <reference path="../typings/index.d.ts" />
+export * from "./repeat-times/index";

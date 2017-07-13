@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Example angular-orz-repeat-times</title>
+</head>
+
+<body>
+  <ul>
+    <orz-repeat times="5">
+      <li>This is the body{{$index}} {{vm.item}}</li>
+    </orz-repeat>
+  </ul>
+
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-orz-repeat-times/lib/angular-orz-repeat-times.js"></script>
+  <script>
+    angular.module("mainApp", ["orz.repeattimes"]);
+    angular.bootstrap(document.body, ['mainApp'], {
+      strictDi: true
+    });
+  </script>
+</body>
+
+</html>

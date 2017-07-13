@@ -1,74 +1,39 @@
-// Karma configuration
-
-'use strict';
-
+// karma.conf.js
 module.exports = function (config) {
-
-    var tsify = require('tsify');
-
     config.set({
+        frameworks: ['jspm', 'mocha', 'chai'],
 
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        plugins: ['karma-mocha', 'karma-chai', 'karma-jspm'],
 
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
-
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine','browserify'],
-
-        // list of files / patterns to load in the browser
         files: [
-            'typings/browser.d.ts',
-            'src/**/*.ts',
-            'test/**/*.ts'
+
         ],
-
-        browserify: {
-            debug: true,
-            plugin: [tsify],
-            extensions: ['.ts', '.js']
+        dev: {
+            // On our local environment we want to test all the things!
+            browsers: ['Chrome']
         },
-
-        // list of files to exclude
-        exclude: [],
-
-        // web server port
-        port: 9876,
-
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
-
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
-
-        // enable / disable colors in the output (reporters and logs)
-        colors: true,
-
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
-
-        // Concurrency level
-        // how many browser should be started simultaneous
-        concurrency: Infinity,
-
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'typings/browser.d.ts': ['browserify'],
-            'src/**/*.ts': ['browserify'],
-            'test/**/*.ts': ['browserify']
-
+        jspm: {
+            // Edit this to your needs 
+            loadFiles: ['lib/**/*.js', 'lib_test/**/*.js'],
+            config: "system.config.js",
+            packages: "jspm_packages/",
         },
+        proxies: {
+            '/lib/': '/base/lib/',
+            '/lib_test/': '/base/lib_test/',
+            '/jspm_packages/': '/base/jspm_packages/'
+        },
+        client: {
+            mocha: {
+                // change Karma's debug.html to the mocha web reporter
+                reporter: 'html',
 
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress']
+                // require specific files after Mocha is initialized
+                require: [],
 
+                // custom ui, defined in required file above
+            }
+        },
+        autoWatch: true
     });
 };

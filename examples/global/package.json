@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "angular-orz-repeat-times": "^1.0.0",
+    "angular": "^1.6.5"
+  },
+  "devDependencies": {
+    "serve": "^6.0.1"
+  },
+  "scripts": {
+    "serve": "serve"
+  },
+  "author": "",
+  "license": "MIT"
+}

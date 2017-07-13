@@ -9,12 +9,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.js',
-      'test/**/*.js',
+      'lib/**/*.js',
+      'lib_test/**/*.js',
       { pattern: 'src/**/*.ts', included: false, watched: false },
       { pattern: 'test/**/*.ts', included: false, watched: false },
-      { pattern: 'src/**/*.js.map', included: false, watched: true },
-      { pattern: 'test/**/*.js.map', included: false, watched: true }
+      { pattern: 'lib/**/*.js.map', included: false, watched: true },
+      { pattern: 'lib_test/**/*.js.map', included: false, watched: true }
     ],
 
     // preprocess matching files before serving them to the browser

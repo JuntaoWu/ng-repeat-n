@@ -1,90 +1,69 @@
 {
-  "name": "ng-repeat-n",
-  "version": "0.0.4",
-  "description": "extension of ng-repeat",
-  "homepage": "https://github.com/JuntaoWu/ng-repeat-n",
-  "author": {
-    "name": "Juntao Wu",
-    "email": "wujuntaocn@live.cn",
-    "url": ""
-  },
+  "name": "angular-orz-repeat-times",
+  "version": "1.0.0",
+  "description": "An ng-repeat helper directive to repeat an element for a fixed number of times",
+  "license": "MIT",
+  "repository": "https://github.com/JuntaoWu/ng-repeat-n.git",
+  "author": "Juntao Wu",
+  "keywords": [
+    "ng-repeat-n, repeat times, angular"
+  ],
   "files": [
     "lib"
   ],
   "main": "lib/index.js",
-  "keywords": [
-    "ng-repeat-n"
-  ],
-  "repository": "https://github.com/JuntaoWu/ng-repeat-n",
-  "dependencies": {
-    "lodash": "4.8.2"
-  },
-  "browserify": {
-  },
-  "devDependencies": {
-    "babelify": "7.3.0",
-    "browserify": "13.0.0",
-    "browserify-istanbul": "2.0.0",
-    "del": "2.0.2",
-    "gulp": "3.9.1",
-    "gulp-bump": "2.1.0",
-    "gulp-concat": "2.6.0",
-    "gulp-filter": "4.0.0",
-    "gulp-git": "1.7.1",
-    "gulp-help": "1.6.0",
-    "gulp-inject": "4.0.0",
-    "gulp-jshint": "2.0.0",
-    "gulp-load-plugins": "1.0.0-rc.1",
-    "gulp-notify": "2.2.0",
-    "gulp-nsp": "2.4.0",
-    "gulp-rename": "1.2.2",
-    "gulp-size": "2.1.0",
-    "gulp-sourcemaps": "1.6.0",
-    "gulp-streamify": "1.0.2",
-    "gulp-tag-version": "1.3.0",
-    "gulp-tsc": "1.1.5",
-    "gulp-tsconfig-files": "0.0.2",
-    "gulp-tslint": "3.1",
-    "gulp-typedoc": "1.2.1",
-    "gulp-typescript": "2.12.2",
-    "gulp-typings": "1.3.4",
-    "gulp-uglify": "1.2.0",
-    "gulp-util": "3.0.7",
-    "jasmine": "2.3.1",
-    "jasmine-core": "2.4.1",
-    "jshint": "2.9.1",
-    "jshint-stylish": "2.1.0",
-    "karma": "0.13.22",
-    "karma-browserify": "5.0.3",
-    "karma-chrome-launcher": "0.2.2",
-    "karma-coverage": "0.5.5",
-    "karma-jasmine": "0.3.7",
-    "karma-phantomjs-launcher": "1.0.0",
-    "karma-remap-istanbul": "0.0.5",
-    "path": "0.12.7",
-    "phantomjs-prebuilt": "2.1.7",
-    "remap-istanbul": "0.5.1",
-    "require-dir": "0.3.0",
-    "run-sequence": "1.1.5",
-    "tsify": "0.14.1",
-    "typescript": "1.8.7",
-    "vinyl-source-stream": "1.1.0",
-    "watchify": "3.7.0"
-  },
+  "types": "lib/index.d.ts",
   "scripts": {
-    "typings-install": "gulp typings-install",
-    "test": "gulp test",
-    "watch": "gulp watch",
-    "clean": "gulp clean-build",
-    "build": "gulp build",
-    "coverage": "gulp coverage",
-    "doc": "gulp typedoc",
-    "tsconfig-update": "gulp tsconfig-update",
-    "patch": "gulp build && gulp patch",
-    "feature": "gulp build && gulp feature",
-    "release": "gulp build && gulp release",
+    "clean": "rimraf lib && rimraf coverage && rimraf .nyc_output && rimraf lib_test",
+    "prettier": "prettier --write \"{src,test}/**/*.ts\"",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "prepublish": "npm run build",
-    "dev-test": "gulp dev-test"
+    "prebuild": "npm run clean && npm run prettier && npm run lint && echo Using TypeScript && tsc --version",
+    "build": "tsc --pretty && node build",
+    "test": "concurrently \"tsc -p tsconfig.test.json --pretty --watch\" \"echo Starting karma && karma start & karma run\"",
+    "coverage": "nyc report --reporter=lcov --reporter=text --reporter=html",
+    "watch": "tsc --pretty --watch",
+    "watch:test": "npm run test -- --watch"
   },
-  "license": "MIT"
+  "dependencies": {},
+  "devDependencies": {
+    "@types/angular": "^1.6.25",
+    "@types/chai": "^4.0.1",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.0",
+    "chai": "^4.0.2",
+    "concurrently": "^3.5.0",
+    "coveralls": "^2.0.0",
+    "jspm": "^0.16.53",
+    "karma": "^1.7.0",
+    "karma-chai": "^0.1.0",
+    "karma-jspm": "^2.2.3",
+    "karma-mocha": "^1.3.0",
+    "mocha": "^3.4.2",
+    "nyc": "^10.0.0",
+    "prettier": "^1.5.2",
+    "rimraf": "^2.0.0",
+    "serve": "^6.0.1",
+    "systemjs-builder": "^0.16.9",
+    "tslint": "^5.0.0",
+    "tslint-config-prettier": "^1.1.0",
+    "typescript": "^2.4.1"
+  },
+  "peerDependencies": {
+    "angular": "1.6.5"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "jspm": {
+    "configFile": "system.config.js",
+    "dependencies": {},
+    "devDependencies": {
+      "angular": "npm:angular@^1.6.5",
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "chai": "npm:chai@^4.0.2",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
 }
